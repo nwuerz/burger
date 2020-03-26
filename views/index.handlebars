@@ -1,21 +1,39 @@
-<h1>Eat-Da-Burger!</h1>
+<style>
+    #burgersContainer {
+        display:flex;
+        width: 100vw;
+    }
+    #burgersContainer > div {
+        flex:1;
+    }
+    .burger_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .burger_wrapper p {
+            margin-right: 10px;
+    }
+</style>
 
-<ul>
-    {{#each burger}}
+<h1>Eat-Da-Burger!</h1>
+<div id="burgersContainer">
+<div>
+    {{#each burgers}}
         {{#unless devoured}}
-            {{> burgers/burger-block devoured=true}}
+           <div class="burger_wrapper"><p>{{burger_name}}</p><button>Devour</button></div>
         {{/unless}}
     {{/each}}
-</ul>
+</div>
 
-<ul>
-    {{#each burger}}
+<div>
+    {{#each burgers}}
         {{#if devoured}}
-            {{> burgers/burger-block devoured=false}}
+            <div class="burger_wrapper"><p>{{burger_name}}</p></div>
         {{/if}}
     {{/each}}
-</ul>
-
+</div>
+</div>
 <button type="submit">Devour!</button>
 
 <label for="message">Enter a burger you want to eat Click the "Submit" button</label>
